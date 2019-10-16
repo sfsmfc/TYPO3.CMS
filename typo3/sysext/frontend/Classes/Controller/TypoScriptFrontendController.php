@@ -4422,7 +4422,7 @@ class TypoScriptFrontendController
         $locales->initialize();
 
         // Language is found. Configure it:
-        if (in_array($this->lang, $locales->getLocales())) {
+        if (in_array($this->lang, $locales->getLocales()) || TYPO3_MODE === "FE") {
             $this->languageDependencies[] = $this->lang;
             foreach ($locales->getLocaleDependencies($this->lang) as $language) {
                 $this->languageDependencies[] = $language;
